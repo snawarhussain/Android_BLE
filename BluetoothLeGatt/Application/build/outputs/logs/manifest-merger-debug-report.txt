@@ -1,0 +1,374 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:20:1-55:12
+INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:20:1-55:12
+INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:20:1-55:12
+MERGED from [com.android.support:support-v13:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-v13-27.0.2.aar\8218b81260219c85dd64dc238b5c404e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-database:16.0.6] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.6.aar\1fb51c354b61353023b03207fa21b9e8\AndroidManifest.xml:15:1-27:12
+MERGED from [com.google.firebase:firebase-core:16.0.7] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.7.aar\f39a3538ef338e6b9a39224afaa00a31\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:17:1-34:12
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:17:1-55:12
+MERGED from [com.google.android.gms:play-services-measurement-api:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-16.3.0.aar\9d5bc100284db098051c80002c45e748\AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:17:1-59:12
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-16.0.1.aar\d83a2dd81c70a461da10d780dd1aa95f\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\ce2de75abdda66d9ca511aa889c4ca26\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.firebase:firebase-common:16.0.4] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.4.aar\ae483c79a58e823b4468dfbe2c731688\AndroidManifest.xml:2:1-17:12
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\e822c90f80284dbce910d741f89d7aa2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.3.0.aar\82a4eaa9c0a06b4f283d2cc2a5dc6f94\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-stats-16.0.1.aar\140d40aa6e18d82f931cac648c9da777\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-17.0.1.aar\6452b31855e9d2b3795797854329bf9c\AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-16.0.0.aar\cd8ea1049964ccf2ceaeb516ea263059\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\fbb6fa64218686d5e456499f17a38d05\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.2.aar\d075ff001d80cd3e9e71ba314209f1ab\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.0.2.aar\794ec1a88b32451c3601b0a7556946d2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\44087b971033ffa595401f6a1e622734\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\5209efbb0139de462b75990fed60fcc6\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\7762165a63a7cf9d53f813de09d24dea\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\2f0e019189e6873c56078c6a8c978629\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\cc128653e3a922e5c63517513d9d698f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\2eafc8f4b3d638281989833bc1f282f6\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.2.aar\330862f6df4dde0851054e7d94efdf8d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\62210073dcf36ecc08cf6211755499f8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-database-collection-16.0.1.aar\9f63734760cb3fc9f60483653b14d708\AndroidManifest.xml:2:1-7:12
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\3f61fef0babcd104117fe55da7ca84ec\AndroidManifest.xml:17:1-24:12
+INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:20:1-55:12
+INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:20:1-55:12
+	package
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:21:5-50
+	android:versionName
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:23:5-30
+		INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:20:11-69
+	android:versionCode
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:22:5-28
+		INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+uses-feature#android.hardware.bluetooth_le
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:31:5-89
+	android:required
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:31:64-87
+	android:name
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:31:19-63
+uses-permission#android.permission.BLUETOOTH
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:33:5-67
+	android:name
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:33:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:34:5-73
+	android:name
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:34:22-71
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:35:5-78
+	android:name
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:35:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:36:5-80
+	android:name
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:36:22-78
+uses-permission-sdk-23#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:37:5-85
+	android:name
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:37:29-83
+uses-permission-sdk-23#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:38:5-87
+	android:name
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:38:29-85
+application
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:40:5-53:19
+MERGED from [com.google.firebase:firebase-core:16.0.7] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.7.aar\f39a3538ef338e6b9a39224afaa00a31\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-core:16.0.7] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.7.aar\f39a3538ef338e6b9a39224afaa00a31\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:26:5-32:19
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:26:5-32:19
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.android.gms:play-services-measurement-api:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-16.3.0.aar\9d5bc100284db098051c80002c45e748\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-api:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-16.3.0.aar\9d5bc100284db098051c80002c45e748\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:28:5-38:19
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:28:5-38:19
+MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:28:5-57:19
+MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:28:5-57:19
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-16.0.1.aar\d83a2dd81c70a461da10d780dd1aa95f\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-16.0.1.aar\d83a2dd81c70a461da10d780dd1aa95f\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\ce2de75abdda66d9ca511aa889c4ca26\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\ce2de75abdda66d9ca511aa889c4ca26\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.firebase:firebase-common:16.0.4] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.4.aar\ae483c79a58e823b4468dfbe2c731688\AndroidManifest.xml:9:5-15:19
+MERGED from [com.google.firebase:firebase-common:16.0.4] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.4.aar\ae483c79a58e823b4468dfbe2c731688\AndroidManifest.xml:9:5-15:19
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\e822c90f80284dbce910d741f89d7aa2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\e822c90f80284dbce910d741f89d7aa2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.3.0.aar\82a4eaa9c0a06b4f283d2cc2a5dc6f94\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.3.0.aar\82a4eaa9c0a06b4f283d2cc2a5dc6f94\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-stats-16.0.1.aar\140d40aa6e18d82f931cac648c9da777\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-stats-16.0.1.aar\140d40aa6e18d82f931cac648c9da777\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-17.0.1.aar\6452b31855e9d2b3795797854329bf9c\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-17.0.1.aar\6452b31855e9d2b3795797854329bf9c\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-16.0.0.aar\cd8ea1049964ccf2ceaeb516ea263059\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-16.0.0.aar\cd8ea1049964ccf2ceaeb516ea263059\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\fbb6fa64218686d5e456499f17a38d05\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\fbb6fa64218686d5e456499f17a38d05\AndroidManifest.xml:22:5-26:19
+	android:label
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:40:18-50
+	android:icon
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:42:9-45
+	android:theme
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:43:9-56
+activity#com.example.android.bluetoothlegatt.DeviceScanActivity
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:44:9-50:20
+	android:label
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:45:13-45
+	android:name
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:44:19-53
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:46:13-49:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:47:17-68
+	android:name
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:47:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:48:17-76
+	android:name
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:48:27-74
+activity#com.example.android.bluetoothlegatt.DeviceControlActivity
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:51:9-58
+	android:name
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:51:19-56
+service#com.example.android.bluetoothlegatt.BluetoothLeService
+ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:52:9-77
+	android:enabled
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:52:53-75
+	android:name
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:52:18-52
+uses-sdk
+INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+MERGED from [com.android.support:support-v13:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-v13-27.0.2.aar\8218b81260219c85dd64dc238b5c404e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-v13-27.0.2.aar\8218b81260219c85dd64dc238b5c404e\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-database:16.0.6] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.6.aar\1fb51c354b61353023b03207fa21b9e8\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-database:16.0.6] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.6.aar\1fb51c354b61353023b03207fa21b9e8\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-core:16.0.7] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.7.aar\f39a3538ef338e6b9a39224afaa00a31\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.7] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.7.aar\f39a3538ef338e6b9a39224afaa00a31\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-16.3.0.aar\9d5bc100284db098051c80002c45e748\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-16.3.0.aar\9d5bc100284db098051c80002c45e748\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-16.0.1.aar\d83a2dd81c70a461da10d780dd1aa95f\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-16.0.1.aar\d83a2dd81c70a461da10d780dd1aa95f\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\ce2de75abdda66d9ca511aa889c4ca26\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\ce2de75abdda66d9ca511aa889c4ca26\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-common:16.0.4] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.4.aar\ae483c79a58e823b4468dfbe2c731688\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-common:16.0.4] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.4.aar\ae483c79a58e823b4468dfbe2c731688\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\e822c90f80284dbce910d741f89d7aa2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\e822c90f80284dbce910d741f89d7aa2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.3.0.aar\82a4eaa9c0a06b4f283d2cc2a5dc6f94\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.3.0.aar\82a4eaa9c0a06b4f283d2cc2a5dc6f94\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-stats-16.0.1.aar\140d40aa6e18d82f931cac648c9da777\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-stats-16.0.1.aar\140d40aa6e18d82f931cac648c9da777\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-17.0.1.aar\6452b31855e9d2b3795797854329bf9c\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-17.0.1.aar\6452b31855e9d2b3795797854329bf9c\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-16.0.0.aar\cd8ea1049964ccf2ceaeb516ea263059\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-16.0.0.aar\cd8ea1049964ccf2ceaeb516ea263059\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\fbb6fa64218686d5e456499f17a38d05\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\fbb6fa64218686d5e456499f17a38d05\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.2.aar\d075ff001d80cd3e9e71ba314209f1ab\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.2.aar\d075ff001d80cd3e9e71ba314209f1ab\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.0.2.aar\794ec1a88b32451c3601b0a7556946d2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.0.2.aar\794ec1a88b32451c3601b0a7556946d2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\44087b971033ffa595401f6a1e622734\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\44087b971033ffa595401f6a1e622734\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\5209efbb0139de462b75990fed60fcc6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\5209efbb0139de462b75990fed60fcc6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\7762165a63a7cf9d53f813de09d24dea\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\7762165a63a7cf9d53f813de09d24dea\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\2f0e019189e6873c56078c6a8c978629\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\2f0e019189e6873c56078c6a8c978629\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\cc128653e3a922e5c63517513d9d698f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\cc128653e3a922e5c63517513d9d698f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\2eafc8f4b3d638281989833bc1f282f6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\2eafc8f4b3d638281989833bc1f282f6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.2.aar\330862f6df4dde0851054e7d94efdf8d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.2.aar\330862f6df4dde0851054e7d94efdf8d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\62210073dcf36ecc08cf6211755499f8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\62210073dcf36ecc08cf6211755499f8\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-database-collection-16.0.1.aar\9f63734760cb3fc9f60483653b14d708\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-database-collection-16.0.1.aar\9f63734760cb3fc9f60483653b14d708\AndroidManifest.xml:5:5-44
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\3f61fef0babcd104117fe55da7ca84ec\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\3f61fef0babcd104117fe55da7ca84ec\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+		ADDED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\nouma\Downloads\Android\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.firebase:firebase-database:16.0.6] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.6.aar\1fb51c354b61353023b03207fa21b9e8\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-database:16.0.6] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.6.aar\1fb51c354b61353023b03207fa21b9e8\AndroidManifest.xml:24:22-76
+uses-permission#android.permission.INTERNET
+ADDED from [com.google.firebase:firebase-database:16.0.6] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.6.aar\1fb51c354b61353023b03207fa21b9e8\AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from [com.google.firebase:firebase-database:16.0.6] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.6.aar\1fb51c354b61353023b03207fa21b9e8\AndroidManifest.xml:25:22-64
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:24:5-68
+	android:name
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:24:22-65
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:27:9-31:19
+MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:29:9-35:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:27:18-89
+meta-data#com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:28:13-30:85
+	android:value
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:30:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\2141de58dde28dc894e398aa7cd791e5\AndroidManifest.xml:29:17-139
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:26:5-110
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:26:5-110
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:26:5-110
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:26:22-107
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:29:9-33:20
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:31:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:30:13-85
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:34:9-42:20
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:29:9-37:20
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.3.0.aar\a4f4e57ce3769dae2bb6796fa9f19f15\AndroidManifest.xml:29:9-37:20
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:36:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:37:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:38:13-69
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:35:13-100
+intent-filter#action:name:com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:39:13-41:29
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:40:17-79
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:40:25-76
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:44:9-47:40
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:46:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:45:13-84
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:48:9-52:72
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:50:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:51:13-37
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:52:13-69
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.3.0.aar\991623bbdc476c0b709cdb2a985da2a0\AndroidManifest.xml:49:13-87
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:26:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:26:22-79
+meta-data#com.google.firebase.components:com.google.firebase.iid.Registrar
+ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:32:13-34:85
+	android:value
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:34:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:33:17-96
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:37:9-44:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:39:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:40:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:38:13-78
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:41:13-43:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:42:17-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:42:25-78
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:50:9-56:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:52:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:51:13-77
+intent-filter#action:name:com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:53:13-55:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:53:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:54:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\4063480b952c8683b35b3626fa0b4f30\AndroidManifest.xml:54:25-77
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\ce2de75abdda66d9ca511aa889c4ca26\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\ce2de75abdda66d9ca511aa889c4ca26\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\ce2de75abdda66d9ca511aa889c4ca26\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\ce2de75abdda66d9ca511aa889c4ca26\AndroidManifest.xml:24:13-79
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:16.0.4] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.4.aar\ae483c79a58e823b4468dfbe2c731688\AndroidManifest.xml:10:9-14:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:16.0.4] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.4.aar\ae483c79a58e823b4468dfbe2c731688\AndroidManifest.xml:12:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:16.0.4] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.4.aar\ae483c79a58e823b4468dfbe2c731688\AndroidManifest.xml:13:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:16.0.4] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.4.aar\ae483c79a58e823b4468dfbe2c731688\AndroidManifest.xml:14:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:16.0.4] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.4.aar\ae483c79a58e823b4468dfbe2c731688\AndroidManifest.xml:11:13-77
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\fbb6fa64218686d5e456499f17a38d05\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\fbb6fa64218686d5e456499f17a38d05\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\nouma\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\fbb6fa64218686d5e456499f17a38d05\AndroidManifest.xml:24:13-58
