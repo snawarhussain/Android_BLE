@@ -20,7 +20,6 @@ import android.app.Activity;
 import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCallback;
 import android.bluetooth.BluetoothGattCharacteristic;
-import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -30,7 +29,6 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,17 +38,16 @@ import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.Query;
+
 /**
  * For a given BLE device, this Activity provides the user interface to connect, display data,
  * and display GATT services and characteristics supported by the device.  The Activity
@@ -66,26 +63,31 @@ public class DeviceControlActivity extends Activity {
     private TextView mConnectionState;
     private TextView mDataField;
     private String mDeviceName;
+    private FirebaseDatabase mFirebaseDatabse;
+    private DatabaseReference mDatabaseReference;
+    private DatabaseReference mReferenceToData;
     private String mDeviceAddress;
     private ExpandableListView mGattServicesList;
     private BluetoothLeService mBluetoothLeService;
     private BluetoothGatt bluetoothGatt;
-    private ArrayList<ArrayList<BluetoothGattCharacteristic>> mGattCharacteristics =
-            new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
+    private ArrayList<ArrayList<BluetoothGattCharacteristic>> mGattCharacteristics = new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
     private boolean mConnected = false;
     private BluetoothGattCharacteristic mNotifyCharacteristic;
+    private boolean mSession_started = false;
+    private boolean mSessionEnded = false;
+    private  boolean mSessionKeyGenereated = false;
 
     private final String LIST_NAME = "NAME";
     private final String LIST_UUID = "UUID";
 
+    private String mActiveSessionKey = null;
+    private String mDataString = null;
+    private   String mDataKey = null;
     // Code to manage Service lifecycle.
-    //============================================
 
-    DatabaseReference mRef  = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference mData = mRef.child("Data");
-
-    //==========================================
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
+
+
 
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder service) {
@@ -187,7 +189,13 @@ public class DeviceControlActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //============================================
 
+         mFirebaseDatabse = FirebaseDatabase.getInstance();
+        // mDatabaseReference = mFirebaseDatabse.getReference().child("messages");
+         mDatabaseReference = mFirebaseDatabse.getReference().child("MilkingSession");
+
+        //==========================================
         //================================
 
         setContentView(R.layout.gatt_services_characteristics);
@@ -275,8 +283,56 @@ public class DeviceControlActivity extends Activity {
     private void displayData(String data) {
         if (data != null) {
             mDataField.setText(data);
-            mData.setValue(data);
+            //mData.setValue(data);
+            mDataString = data;
+            Date start_time = Calendar.getInstance().getTime();
+            double Litters = 0.0;
+            Data dataReceived = new Data(mDataString);
+            //==============================================================
+            mSession_started = true;
+            Query lastQuery;
+
+             if(mSession_started) {
+
+                if(mActiveSessionKey == null) {
+                    mActiveSessionKey = mDatabaseReference.push().getKey();
+
+
+//
+//                    mSessionKeyGenereated = true;
+                    MilkingSession milkingSession = new MilkingSession(start_time, null, Litters);
+                    mDatabaseReference.child(mActiveSessionKey).setValue(milkingSession);
+
+//                    lastQuery  = mDatabaseReference.child(mActiveSessionKey).orderByKey().limitToLast(1);
+//                    mReferenceToData =  lastQuery.getRef().child("Data");
+//
+//                    // mReferenceToData.
+//                   mDataKey  = mReferenceToData.push().getKey();
+                }
+
+                 DatabaseReference ref = mDatabaseReference.child(mActiveSessionKey)
+                         .child("data")
+                         .child(dataReceived.getTag());
+
+                HashMap<String, Object> values = new HashMap<>();
+                values.put("flowRate", dataReceived.getFlowRate());
+                ref.getRef().updateChildren(values);
+
+
+            }
+
+
+            //================================================================
         }
+    }
+    private void Data_Key(String key )
+    {
+
+        mReferenceToData = mDatabaseReference.child(key).child("Data");
+        String data_key = mReferenceToData.push().getKey();
+        mReferenceToData.child(data_key).setValue(3);
+
+
     }
 
     // Demonstrates how to iterate through the supported GATT Services/Characteristics.

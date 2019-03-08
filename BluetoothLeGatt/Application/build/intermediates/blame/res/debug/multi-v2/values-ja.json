@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\nouma\\Downloads\\Android\\BluetoothLeGatt\\Application\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ja\\values-ja.xml",
+            "outputFile": "C:\\Users\\Sanawar\\Downloads\\Android_BLE\\BluetoothLeGatt\\Application\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ja\\values-ja.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\nouma\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.0.1.aar\\fbb6fa64218686d5e456499f17a38d05\\res\\values-ja\\values.xml",
+                    "source": "C:\\Users\\Sanawar\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.2.aar\\53763b526e4686414357b87e6e86d5ed\\res\\values-ja\\values-ja.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "180",
-                        "endOffsets": "427"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "27",
+                        "startLines": "38",
                         "startColumns": "4",
-                        "startOffsets": "2830",
-                        "endColumns": "180",
-                        "endOffsets": "3006"
+                        "startOffsets": "4276",
+                        "endColumns": "100",
+                        "endOffsets": "4372"
                     }
                 },
                 {
-                    "source": "C:\\Users\\nouma\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\44087b971033ffa595401f6a1e622734\\res\\values-ja\\values-ja.xml",
+                    "source": "C:\\Users\\Sanawar\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\f119be92b0bbbe49a3777f63eeca04a7\\res\\values-ja\\values-ja.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\nouma\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\ce2de75abdda66d9ca511aa889c4ca26\\res\\values-ja\\values.xml",
+                    "source": "C:\\Users\\Sanawar\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.0.1.aar\\d91a9f7454a56c314eacafccacb727c3\\res\\values-ja\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "180",
+                        "endOffsets": "427"
+                    },
+                    "to": {
+                        "startLines": "27",
+                        "startColumns": "4",
+                        "startOffsets": "2830",
+                        "endColumns": "180",
+                        "endOffsets": "3006"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Sanawar\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\d01cc7fc5b63112b7aa325ffe4a14f32\\res\\values-ja\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -52,23 +69,6 @@
                         "startOffsets": "1754,1860,2026,2148,2256,2445,2567,2702,3011,3202,3305,3469,3590,3769,3919,4009,4098",
                         "endColumns": "105,165,121,107,188,121,134,127,190,102,163,120,178,149,89,88,99",
                         "endOffsets": "1855,2021,2143,2251,2440,2562,2697,2825,3197,3300,3464,3585,3764,3914,4004,4093,4193"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\nouma\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.2.aar\\62210073dcf36ecc08cf6211755499f8\\res\\values-ja\\values-ja.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "38",
-                        "startColumns": "4",
-                        "startOffsets": "4276",
-                        "endColumns": "100",
-                        "endOffsets": "4372"
                     }
                 }
             ]

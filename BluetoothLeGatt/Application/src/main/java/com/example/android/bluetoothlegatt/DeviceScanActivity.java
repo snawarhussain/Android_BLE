@@ -276,7 +276,8 @@ public class DeviceScanActivity extends ListActivity {
                 viewHolder.deviceAddress = (TextView) view.findViewById(R.id.device_address);
                 viewHolder.deviceName = (TextView) view.findViewById(R.id.device_name);
                 view.setTag(viewHolder);
-            } else {
+            } else
+                {
                 viewHolder = (ViewHolder) view.getTag();
             }
 
