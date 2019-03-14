@@ -29,14 +29,20 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -59,9 +65,12 @@ public class DeviceControlActivity extends Activity {
 
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
+    //public static final String STATION_DATA = "Station number" ;
     private BluetoothGattCallback BluetoothGattCallback;
     private TextView mConnectionState;
     private TextView mDataField;
+    private Button mWriteButton;
+    private TextView mStationNumber;
     private String mDeviceName;
     private FirebaseDatabase mFirebaseDatabse;
     private DatabaseReference mDatabaseReference;
@@ -73,10 +82,10 @@ public class DeviceControlActivity extends Activity {
     private ArrayList<ArrayList<BluetoothGattCharacteristic>> mGattCharacteristics = new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
     private boolean mConnected = false;
     private BluetoothGattCharacteristic mNotifyCharacteristic;
+    private BluetoothGattCharacteristic mWriteCharacteristic;
     private boolean mSession_started = false;
     private boolean mSessionEnded = false;
     private  boolean mSessionKeyGenereated = false;
-
     private final String LIST_NAME = "NAME";
     private final String LIST_UUID = "UUID";
 
@@ -84,10 +93,10 @@ public class DeviceControlActivity extends Activity {
     private String mDataString = null;
     private   String mDataKey = null;
     // Code to manage Service lifecycle.
-
+    private String mStationN = null;
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
 
-
+      //  public final static String STATION_DATA = "com.example.bluetooth.le.STATION_DATA";
 
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder service) {
@@ -95,6 +104,7 @@ public class DeviceControlActivity extends Activity {
             if (!mBluetoothLeService.initialize()) {
                 Log.e(TAG, "Unable to initialize Bluetooth");
                 finish();
+
             }
             // Automatically connects to the device upon successful start-up initialization.
             mBluetoothLeService.connect(mDeviceAddress);
@@ -134,6 +144,8 @@ public class DeviceControlActivity extends Activity {
         }
     };
 
+
+
     // If a given GATT characteristic is selected, check for supported features.  This sample
     // demonstrates 'Read' and 'Notify' features.  See
     // http://d.android.com/reference/android/bluetooth/BluetoothGatt.html for the complete
@@ -162,9 +174,9 @@ public class DeviceControlActivity extends Activity {
                         if ((charaProp | BluetoothGattCharacteristic.PROPERTY_NOTIFY) > 0) {
                             /**===========================================
                              final UUID CCCD_ID = UUID.fromString("000002902-0000-1000-8000-00805f9b34fb");
-                            final BluetoothGattDescriptor cccd = rccp_char.getDescriptor(CCCD_ID);
-                            cccd.setValue(BluetoothGattDescriptor.ENABLE_INDICATION_VALUE)
-                            //============================================
+                             final BluetoothGattDescriptor cccd = rccp_char.getDescriptor(CCCD_ID);
+                             cccd.setValue(BluetoothGattDescriptor.ENABLE_INDICATION_VALUE)
+                             //============================================
                              */
                             mNotifyCharacteristic = characteristic;
                             mBluetoothLeService.setCharacteristicNotification(
@@ -177,17 +189,18 @@ public class DeviceControlActivity extends Activity {
                     }
                     return false;
                 }
-    };
+            };
 
     private void clearUI() {
         mGattServicesList.setAdapter((SimpleExpandableListAdapter) null);
         mDataField.setText(R.string.no_data);
 
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         //============================================
 
@@ -210,14 +223,81 @@ public class DeviceControlActivity extends Activity {
         mGattServicesList.setOnChildClickListener(servicesListClickListner);
         mConnectionState = (TextView) findViewById(R.id.connection_state);
         mDataField = (TextView) findViewById(R.id.data_value);
-
+        mWriteButton = (Button) findViewById(R.id.write_btn);
+        mStationNumber = (TextView) findViewById(R.id.Edit_txt);
+        mWriteButton.setEnabled(false);
         //================================
 
         getActionBar().setTitle(mDeviceName);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+
+
+mStationNumber.addTextChangedListener(new TextWatcher() {
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        if (charSequence.toString().trim().length() > 0) {
+            mWriteButton.setEnabled(true);
+        } else {
+            mWriteButton.setEnabled(false);
+        }
+
     }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        if (charSequence.toString().trim().length() > 0) {
+            mWriteButton.setEnabled(true);
+        } else {
+            mWriteButton.setEnabled(false);
+        }
+    }
+
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
+    }
+});
+
+
+   mWriteButton.setOnClickListener(new View.OnClickListener() {
+       @Override
+       public void onClick(View view) {
+          mStationN = mStationNumber.getText().toString();
+          mStationNumber.setText("");
+ /**
+           if((mWriteCharacteristic != null))
+           {
+                mNotifyCharacteristic.setValue(mStationN);
+                bluetoothGatt.writeCharacteristic(mNotifyCharacteristic);
+              //  mGattUpdateReceiver.
+           }
+           else {
+               Toast toast = Toast.makeText(getApplicationContext(),
+                       "Null Characteristic",
+                       Toast.LENGTH_SHORT);
+
+               toast.show();
+           }
+
+
+
+*/
+    mBluetoothLeService.updateStationNumber(mStationN);
+//           Intent intent = new Intent(DeviceControlActivity.this, BluetoothLeService.class);
+//        intent.putExtra(STATION_DATA,mStationN);
+//            sendBroadcast(intent);
+          // mNotifyCharacteristic.setValue(mStationN);
+           //   BluetoothGattCharacteristic chatac =    mGattCharacteristics.get(1);
+
+       }
+   });
+
+    }
+
+
 
     @Override
     protected void onResume() {
@@ -255,6 +335,7 @@ public class DeviceControlActivity extends Activity {
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
@@ -280,12 +361,24 @@ public class DeviceControlActivity extends Activity {
         });
     }
 
+    public static String getCurrentTimeUsingDate() {
+
+        Date date = new Date();
+
+        String strDateFormat = "hh:mm:ss a";
+
+        DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
+
+        String formattedDate= dateFormat.format(date);
+return formattedDate;
+    }
+
     private void displayData(String data) {
         if (data != null) {
             mDataField.setText(data);
             //mData.setValue(data);
             mDataString = data;
-            Date start_time = Calendar.getInstance().getTime();
+            String start_time = getCurrentTimeUsingDate();
             double Litters = 0.0;
             Data dataReceived = new Data(mDataString);
             //==============================================================
@@ -316,6 +409,8 @@ public class DeviceControlActivity extends Activity {
 
                 HashMap<String, Object> values = new HashMap<>();
                 values.put("flowRate", dataReceived.getFlowRate());
+                values.put("Tag",dataReceived.getTag() );
+                values.put("Litters", dataReceived.getLitters());
                 ref.getRef().updateChildren(values);
 
 
@@ -325,15 +420,7 @@ public class DeviceControlActivity extends Activity {
             //================================================================
         }
     }
-    private void Data_Key(String key )
-    {
 
-        mReferenceToData = mDatabaseReference.child(key).child("Data");
-        String data_key = mReferenceToData.push().getKey();
-        mReferenceToData.child(data_key).setValue(3);
-
-
-    }
 
     // Demonstrates how to iterate through the supported GATT Services/Characteristics.
     // In this sample, we populate the data structure that is bound to the ExpandableListView

@@ -26,14 +26,20 @@ import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Binder;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Button;
 
 import java.util.List;
 import java.util.UUID;
+
+
 
 /**
  * Service for managing connection and data communication with a GATT server hosted on a
@@ -47,10 +53,11 @@ public class BluetoothLeService extends Service {
     private String mBluetoothDeviceAddress;
     private BluetoothGatt mBluetoothGatt;
     private int mConnectionState = STATE_DISCONNECTED;
-
+    private String Station = null;
     private static final int STATE_DISCONNECTED = 0;
     private static final int STATE_CONNECTING = 1;
     private static final int STATE_CONNECTED = 2;
+    private Button mWriteButton;
 
 
     public final static String ACTION_GATT_CONNECTED =
@@ -88,6 +95,7 @@ public class BluetoothLeService extends Service {
                 Log.i(TAG, "Disconnected from GATT server.");
                 broadcastUpdate(intentAction);
             }
+
         }
 
         @Override
@@ -105,7 +113,12 @@ public class BluetoothLeService extends Service {
                                          int status) {
             if (status == BluetoothGatt.GATT_SUCCESS) {
                 broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
+                if(Station != null) {
+                    characteristic.setValue(Station);
+                    mBluetoothGatt.writeCharacteristic(characteristic);
+                }
             }
+
         }
 
         @Override
@@ -113,11 +126,15 @@ public class BluetoothLeService extends Service {
                                             BluetoothGattCharacteristic characteristic) {
             broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
         }
+
     };
+
+
 
     private void broadcastUpdate(final String action) {
         final Intent intent = new Intent(action);
         sendBroadcast(intent);
+
     }
 
     private void broadcastUpdate(final String action,
@@ -142,15 +159,33 @@ public class BluetoothLeService extends Service {
             intent.putExtra(EXTRA_DATA, String.valueOf(heartRate));
         } else {
             // For all other profiles, writes the data formatted in HEX.
+
+          //  characteristic.setValue(Station);
+          //  mBluetoothGatt.writeCharacteristic(characteristic);
             final byte[] data = characteristic.getValue();
+            if(Station != null) {
+                characteristic.setValue(Station);
+                mBluetoothGatt.writeCharacteristic(characteristic);
+            }
+
             if (data != null && data.length > 0) {
                 final StringBuilder stringBuilder = new StringBuilder(data.length);
                 for(byte byteChar : data)
                     stringBuilder.append(String.format("%02X ", byteChar));
-                intent.putExtra(EXTRA_DATA, new String(data) + "\n" + stringBuilder.toString());
+                intent.putExtra(EXTRA_DATA, new String(data) + "\n" + stringBuilder.toString() );
+
+
             }
+
         }
         sendBroadcast(intent);
+    }
+
+
+    public void updateStationNumber(String mStationN) {
+
+         Station = mStationN;
+
     }
 
     public class LocalBinder extends Binder {
@@ -199,6 +234,9 @@ public class BluetoothLeService extends Service {
 
         return true;
     }
+
+
+
 
     /**
      * Connects to the GATT server hosted on the Bluetooth LE device.

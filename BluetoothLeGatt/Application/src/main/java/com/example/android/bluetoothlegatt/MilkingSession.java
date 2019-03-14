@@ -9,14 +9,14 @@ import java.util.Date;
 
 public class MilkingSession {
 
-    private Date Start_Time ;
+    private String Start_Time ;
     private Date End_Time;
     private double Total_Litters;
     // SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
     //  String currentDateandTime = sdf.format(new Date());
 
 
-    public MilkingSession(Date Start_Time, Date End_Time, double Litters )
+    public MilkingSession(String Start_Time, Date End_Time, double Litters )
     {
 
         this.Start_Time = Start_Time;
@@ -25,11 +25,11 @@ public class MilkingSession {
 
 
     }
-    public Date getStart_Time() {
+    public String getStart_Time() {
         return Start_Time;
     }
 
-    public void setStart_Time(Date Start_Time) {
+    public void setStart_Time(String Start_Time) {
         this.Start_Time = Start_Time;
     }
 

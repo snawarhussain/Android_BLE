@@ -16,10 +16,10 @@ public class Data {
     public  Data(String data)
 
     {
-        this.Tag  = data.substring(0,2);
-        this.Litters = data.substring(3,5);
-        this.Total_Milking_time = data.substring(8,9);
-        this.FlowRate = data.substring(13);
+        this.Tag  = data.substring(0,3);
+        this.Litters = data.substring(4,8);
+        this.Total_Milking_time = data.substring(9,10);
+        this.FlowRate = data.substring(15);
 
     }
     public String getTag() {
