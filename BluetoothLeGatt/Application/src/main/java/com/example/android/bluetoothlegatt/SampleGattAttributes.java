@@ -28,10 +28,10 @@ public class SampleGattAttributes {
 
     static {
         // Sample Services.
-        attributes.put("0000180d-0000-1000-8000-00805f9b34fb", "Heart Rate Service");
+        attributes.put("4fafc201-1fb5-459e-8fcc-c5c9c331914b", "DairyHawk Service");
         attributes.put("0000180a-0000-1000-8000-00805f9b34fb", "Device Information Service");
         // Sample Characteristics.
-        attributes.put(HEART_RATE_MEASUREMENT, "Heart Rate Measurement");
+        attributes.put("beb5483e-36e1-4688-b7f5-ea07361b26a8", "DairyHawk Milk Monitor");
         attributes.put("00002a29-0000-1000-8000-00805f9b34fb", "Manufacturer Name String");
     }
 

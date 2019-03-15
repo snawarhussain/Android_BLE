@@ -51,7 +51,7 @@ public class BluetoothLeService extends Service {
     private BluetoothManager mBluetoothManager;
     private BluetoothAdapter mBluetoothAdapter;
     private String mBluetoothDeviceAddress;
-    private BluetoothGatt mBluetoothGatt;
+    public BluetoothGatt mBluetoothGatt;
     private int mConnectionState = STATE_DISCONNECTED;
     private String Station = null;
     private static final int STATE_DISCONNECTED = 0;
@@ -68,8 +68,8 @@ public class BluetoothLeService extends Service {
             "com.example.bluetooth.le.ACTION_GATT_SERVICES_DISCOVERED";
     public final static String ACTION_DATA_AVAILABLE =
             "com.example.bluetooth.le.ACTION_DATA_AVAILABLE";
-    public final static String EXTRA_DATA =
-            "com.example.bluetooth.le.EXTRA_DATA";
+    public final static String EXTRA_DATA = //"EXTRA_DATA";
+           "com.example.bluetooth.le.EXTRA_DATA";
 
     public final static UUID UUID_HEART_RATE_MEASUREMENT =
             UUID.fromString(SampleGattAttributes.HEART_RATE_MEASUREMENT);
@@ -113,10 +113,7 @@ public class BluetoothLeService extends Service {
                                          int status) {
             if (status == BluetoothGatt.GATT_SUCCESS) {
                 broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
-                if(Station != null) {
-                    characteristic.setValue(Station);
-                    mBluetoothGatt.writeCharacteristic(characteristic);
-                }
+
             }
 
         }
@@ -160,20 +157,18 @@ public class BluetoothLeService extends Service {
         } else {
             // For all other profiles, writes the data formatted in HEX.
 
-          //  characteristic.setValue(Station);
-          //  mBluetoothGatt.writeCharacteristic(characteristic);
+
             final byte[] data = characteristic.getValue();
-            if(Station != null) {
-                characteristic.setValue(Station);
-                mBluetoothGatt.writeCharacteristic(characteristic);
-            }
 
             if (data != null && data.length > 0) {
                 final StringBuilder stringBuilder = new StringBuilder(data.length);
                 for(byte byteChar : data)
                     stringBuilder.append(String.format("%02X ", byteChar));
-                intent.putExtra(EXTRA_DATA, new String(data) + "\n" + stringBuilder.toString() );
 
+
+               String extraData =  new String(data) + "\n" + stringBuilder.toString();
+               intent.putExtra(EXTRA_DATA, extraData );
+               // intent.putExtra(EXTRA_DATA, data.toString() );
 
             }
 

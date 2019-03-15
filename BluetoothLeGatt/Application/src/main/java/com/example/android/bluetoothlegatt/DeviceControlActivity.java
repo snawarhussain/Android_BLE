@@ -88,6 +88,7 @@ public class DeviceControlActivity extends Activity {
     private  boolean mSessionKeyGenereated = false;
     private final String LIST_NAME = "NAME";
     private final String LIST_UUID = "UUID";
+    public BluetoothGattCharacteristic mMilkMeterCharacteristic;
 
     private String mActiveSessionKey = null;
     private String mDataString = null;
@@ -158,8 +159,7 @@ public class DeviceControlActivity extends Activity {
                 public boolean onChildClick(ExpandableListView parent, View v, int groupPosition,
                                             int childPosition, long id) {
                     if (mGattCharacteristics != null) {
-                        final BluetoothGattCharacteristic characteristic =
-                                mGattCharacteristics.get(groupPosition).get(childPosition);
+                        final BluetoothGattCharacteristic characteristic = mGattCharacteristics.get(groupPosition).get(childPosition);
                         final int charaProp = characteristic.getProperties();
                         if ((charaProp | BluetoothGattCharacteristic.PROPERTY_READ) > 0) {
                             // If there is an active notification on a characteristic, clear
@@ -190,6 +190,7 @@ public class DeviceControlActivity extends Activity {
                     return false;
                 }
             };
+
 
     private void clearUI() {
         mGattServicesList.setAdapter((SimpleExpandableListAdapter) null);
@@ -284,7 +285,9 @@ mStationNumber.addTextChangedListener(new TextWatcher() {
 
 
 
-*/
+*/  mMilkMeterCharacteristic.setValue(mStationN);
+    mBluetoothLeService.mBluetoothGatt.writeCharacteristic(mMilkMeterCharacteristic);
+
     mBluetoothLeService.updateStationNumber(mStationN);
 //           Intent intent = new Intent(DeviceControlActivity.this, BluetoothLeService.class);
 //        intent.putExtra(STATION_DATA,mStationN);
@@ -380,6 +383,9 @@ return formattedDate;
             mDataString = data;
             String start_time = getCurrentTimeUsingDate();
             double Litters = 0.0;
+           if(mDataString.matches("xxx/xxxx/xx/xx/xxx"))
+           {
+            //if(mDataString.length() == 20)
             Data dataReceived = new Data(mDataString);
             //==============================================================
             mSession_started = true;
@@ -387,33 +393,33 @@ return formattedDate;
 
              if(mSession_started) {
 
-                if(mActiveSessionKey == null) {
-                    mActiveSessionKey = mDatabaseReference.push().getKey();
+                 if (mActiveSessionKey == null) {
+                     mActiveSessionKey = mDatabaseReference.push().getKey();
 
 
 //
 //                    mSessionKeyGenereated = true;
-                    MilkingSession milkingSession = new MilkingSession(start_time, null, Litters);
-                    mDatabaseReference.child(mActiveSessionKey).setValue(milkingSession);
+                     MilkingSession milkingSession = new MilkingSession(start_time, null, Litters);
+                     mDatabaseReference.child(mActiveSessionKey).setValue(milkingSession);
 
 //                    lastQuery  = mDatabaseReference.child(mActiveSessionKey).orderByKey().limitToLast(1);
 //                    mReferenceToData =  lastQuery.getRef().child("Data");
 //
 //                    // mReferenceToData.
 //                   mDataKey  = mReferenceToData.push().getKey();
-                }
+                 }
 
                  DatabaseReference ref = mDatabaseReference.child(mActiveSessionKey)
                          .child("data")
                          .child(dataReceived.getTag());
 
-                HashMap<String, Object> values = new HashMap<>();
-                values.put("flowRate", dataReceived.getFlowRate());
-                values.put("Tag",dataReceived.getTag() );
-                values.put("Litters", dataReceived.getLitters());
-                ref.getRef().updateChildren(values);
+                 HashMap<String, Object> values = new HashMap<>();
+                 values.put("flowRate", dataReceived.getFlowRate());
+                 values.put("Tag", dataReceived.getTag());
+                 values.put("Litters", dataReceived.getLitters());
+                 ref.getRef().updateChildren(values);
 
-
+             }
             }
 
 
@@ -460,10 +466,17 @@ return formattedDate;
                         LIST_NAME, SampleGattAttributes.lookup(uuid, unknownCharaString));
                 currentCharaData.put(LIST_UUID, uuid);
                 gattCharacteristicGroupData.add(currentCharaData);
+                if(uuid.equals("beb5483e-36e1-4688-b7f5-ea07361b26a8") )
+                {
+                    mMilkMeterCharacteristic = gattCharacteristic;
+
+
+                }
             }
             mGattCharacteristics.add(charas);
             gattCharacteristicData.add(gattCharacteristicGroupData);
         }
+        mMilkMeterCharacteristic =  mMilkMeterCharacteristic;
 
         SimpleExpandableListAdapter gattServiceAdapter = new SimpleExpandableListAdapter(
                 this,
