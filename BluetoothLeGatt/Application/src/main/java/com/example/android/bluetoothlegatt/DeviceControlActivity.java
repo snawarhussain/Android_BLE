@@ -309,6 +309,7 @@ mStationNumber.addTextChangedListener(new TextWatcher() {
         if (mBluetoothLeService != null) {
             final boolean result = mBluetoothLeService.connect(mDeviceAddress);
             Log.d(TAG, "Connect request result=" + result);
+
         }
     }
 
@@ -383,8 +384,11 @@ return formattedDate;
             mDataString = data;
             String start_time = getCurrentTimeUsingDate();
             double Litters = 0.0;
-           if(mDataString.matches("xxx/xxxx/xx/xx/xxx"))
+            boolean match  = mDataString.matches("(.)"+"(.)"+"(\\/)"+"([+-]?\\d*\\.\\d+)(?![-+0-9\\.])"+"(\\/)"+"(.)"+"(.)"+"(\\/)"+"(.)"+
+                    "(.)"+"(\\/)"+"(.)"+"(.)"+"(\\/)"+"(.)"+"(.)");
+           if(match)
            {
+               //XX//\XXXX//\XX//\XX//\XX//\XX
             //if(mDataString.length() == 20)
             Data dataReceived = new Data(mDataString);
             //==============================================================
