@@ -29,6 +29,7 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -50,9 +51,12 @@ import java.util.HashMap;
 import java.util.List;
 
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * For a given BLE device, this Activity provides the user interface to connect, display data,
@@ -81,6 +85,8 @@ public class DeviceControlActivity extends Activity {
     private BluetoothGatt bluetoothGatt;
     private ArrayList<ArrayList<BluetoothGattCharacteristic>> mGattCharacteristics = new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
     private boolean mConnected = false;
+    private  MilkingSession mLastMilkingSession;
+    private  String mLastMilkingSessionKey =null;
     private BluetoothGattCharacteristic mNotifyCharacteristic;
     private BluetoothGattCharacteristic mWriteCharacteristic;
     private boolean mSession_started = false;
@@ -92,9 +98,12 @@ public class DeviceControlActivity extends Activity {
 
     private String mActiveSessionKey = null;
     private String mDataString = null;
+    private long timeString;
     private   String mDataKey = null;
     // Code to manage Service lifecycle.
     private String mStationN = null;
+    private long timeDifference;
+    private Data dataReceived;
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
 
       //  public final static String STATION_DATA = "com.example.bluetooth.le.STATION_DATA";
@@ -209,6 +218,30 @@ public class DeviceControlActivity extends Activity {
         // mDatabaseReference = mFirebaseDatabse.getReference().child("messages");
          mDatabaseReference = mFirebaseDatabse.getReference().child("MilkingSession");
 
+         Query LastSession = mDatabaseReference.orderByKey().limitToLast(1);
+         LastSession.addListenerForSingleValueEvent(new ValueEventListener() {
+             @Override
+             public void onDataChange(@NonNull DataSnapshot dataSnapshot){
+
+                 for(DataSnapshot snap: dataSnapshot.getChildren()){
+                     MilkingSession session = snap.getValue(MilkingSession.class);
+                     mLastMilkingSessionKey = snap.getKey();
+                      timeString = session.getStart_Time();
+
+                     Log.d("YES", "Samosay Par Gaye with Chai");
+                 }
+
+
+
+
+             }
+
+             @Override
+             public void onCancelled(@NonNull DatabaseError databaseError) {
+
+             }
+         });
+
         //==========================================
         //================================
 
@@ -268,24 +301,7 @@ mStationNumber.addTextChangedListener(new TextWatcher() {
        public void onClick(View view) {
           mStationN = mStationNumber.getText().toString();
           mStationNumber.setText("");
- /**
-           if((mWriteCharacteristic != null))
-           {
-                mNotifyCharacteristic.setValue(mStationN);
-                bluetoothGatt.writeCharacteristic(mNotifyCharacteristic);
-              //  mGattUpdateReceiver.
-           }
-           else {
-               Toast toast = Toast.makeText(getApplicationContext(),
-                       "Null Characteristic",
-                       Toast.LENGTH_SHORT);
-
-               toast.show();
-           }
-
-
-
-*/  mMilkMeterCharacteristic.setValue(mStationN);
+  mMilkMeterCharacteristic.setValue(mStationN);
     mBluetoothLeService.mBluetoothGatt.writeCharacteristic(mMilkMeterCharacteristic);
 
     mBluetoothLeService.updateStationNumber(mStationN);
@@ -365,16 +381,13 @@ mStationNumber.addTextChangedListener(new TextWatcher() {
         });
     }
 
-    public static String getCurrentTimeUsingDate() {
+    public static long getCurrentTimeUsingDate() {
 
         Date date = new Date();
 
-        String strDateFormat = "hh:mm:ss a";
+        long timestamp = date.getTime();
 
-        DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
-
-        String formattedDate= dateFormat.format(date);
-return formattedDate;
+return timestamp;
     }
 
     private void displayData(String data) {
@@ -382,46 +395,57 @@ return formattedDate;
             mDataField.setText(data);
             //mData.setValue(data);
             mDataString = data;
-            String start_time = getCurrentTimeUsingDate();
+            long start_time = getCurrentTimeUsingDate();
+
             double Litters = 0.0;
             boolean match  = mDataString.matches("(.)"+"(.)"+"(\\/)"+"([+-]?\\d*\\.\\d+)(?![-+0-9\\.])"+"(\\/)"+"(.)"+"(.)"+"(\\/)"+"(.)"+
                     "(.)"+"(\\/)"+"(.)"+"(.)"+"(\\/)"+"(.)"+"(.)");
-           if(match)
+           if(true)
            {
                //XX//\XXXX//\XX//\XX//\XX//\XX
             //if(mDataString.length() == 20)
-            Data dataReceived = new Data(mDataString);
+             dataReceived = new Data(mDataString);
             //==============================================================
             mSession_started = true;
             Query lastQuery;
+            timeDifference = start_time -timeString;
 
-             if(mSession_started) {
+            if(timeDifference >= 10800000) {
 
-                 if (mActiveSessionKey == null) {
-                     mActiveSessionKey = mDatabaseReference.push().getKey();
+                if (mSession_started) {
 
+                    if (mActiveSessionKey == null) {
+                        mActiveSessionKey = mDatabaseReference.push().getKey();
+                        mLastMilkingSessionKey = mActiveSessionKey;
 
 //
 //                    mSessionKeyGenereated = true;
-                     MilkingSession milkingSession = new MilkingSession(start_time, null, Litters);
-                     mDatabaseReference.child(mActiveSessionKey).setValue(milkingSession);
+                        MilkingSession milkingSession = new MilkingSession(start_time, null, Litters);
+                        mDatabaseReference.child(mActiveSessionKey).setValue(milkingSession);
 
-//                    lastQuery  = mDatabaseReference.child(mActiveSessionKey).orderByKey().limitToLast(1);
+//                   lastQuery  = mDatabaseReference.child(mActiveSessionKey).orderByKey().limitToLast(1);
 //                    mReferenceToData =  lastQuery.getRef().child("Data");
 //
 //                    // mReferenceToData.
 //                   mDataKey  = mReferenceToData.push().getKey();
-                 }
+                        UpdateDataChild(mActiveSessionKey);
+                    }
+                }
+            }
+            else {
 
-                 DatabaseReference ref = mDatabaseReference.child(mActiveSessionKey)
-                         .child("data")
-                         .child(dataReceived.getTag());
+                MilkingSession milkingSessionObj = new MilkingSession(timeString, null, Litters);
+                HashMap<String, Object> milkingSession = new HashMap<>();
+                milkingSession.put("total_Litters", milkingSessionObj.getTotal_Litters());
 
-                 HashMap<String, Object> values = new HashMap<>();
-                 values.put("flowRate", dataReceived.getFlowRate());
-                 values.put("Tag", dataReceived.getTag());
-                 values.put("Litters", dataReceived.getLitters());
-                 ref.getRef().updateChildren(values);
+
+                mDatabaseReference.child(mLastMilkingSessionKey).updateChildren(milkingSession);
+                UpdateDataChild(mLastMilkingSessionKey);
+
+
+            }
+
+
 
              }
             }
@@ -429,7 +453,7 @@ return formattedDate;
 
             //================================================================
         }
-    }
+
 
 
     // Demonstrates how to iterate through the supported GATT Services/Characteristics.
@@ -503,5 +527,18 @@ return formattedDate;
         intentFilter.addAction(BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
         intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
         return intentFilter;
+    }
+    private void UpdateDataChild(String key){
+        DatabaseReference ref = mDatabaseReference.child(key)
+                .child("data")
+                .child(dataReceived.getTag());
+
+        HashMap<String, Object> values = new HashMap<>();
+        values.put("flowRate", dataReceived.getFlowRate());
+        values.put("Tag", dataReceived.getTag());
+        values.put("Litters", dataReceived.getLitters());
+        ref.getRef().updateChildren(values);
+
+
     }
 }
