@@ -17,9 +17,9 @@ public class Data {
 
     {
         this.Tag  = data.substring(0,3);
-        this.Litters = data.substring(4,8);
-        this.Total_Milking_time = data.substring(9,10);
-        this.FlowRate = data.substring(15);
+        this.Litters = data.substring(4,9);
+        this.Total_Milking_time = data.substring(10,12);
+        this.FlowRate = data.substring(13,15);
 
     }
     public String getTag() {

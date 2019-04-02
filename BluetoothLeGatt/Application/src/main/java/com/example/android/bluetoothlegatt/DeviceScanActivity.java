@@ -157,6 +157,7 @@ public class DeviceScanActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
+       // final ArrayList device = mBluetoothAdapter.getBondedDevices();
         if (device == null) return;
         final Intent intent = new Intent(this, DeviceControlActivity.class);
         intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
@@ -294,7 +295,6 @@ public class DeviceScanActivity extends ListActivity {
         }
     }
 
-
     // Device scan callback.
     private BluetoothAdapter.LeScanCallback mLeScanCallback =
             new BluetoothAdapter.LeScanCallback() {
@@ -321,5 +321,24 @@ public class DeviceScanActivity extends ListActivity {
     static class ViewHolder {
         TextView deviceName;
         TextView deviceAddress;
+    }
+
+    private void sendIntent ()
+    {
+        final ArrayList<BluetoothDevice> device = (ArrayList<BluetoothDevice>) mBluetoothAdapter.getBondedDevices();
+
+        for(BluetoothDevice blue : device) {
+            if (blue == null) return;
+            if (blue.getName().equals("MyESP32")) {
+                final Intent intent = new Intent(this, DeviceControlActivity.class);
+                intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, blue.getName());
+                intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, blue.getAddress());
+                if (mScanning) {
+                    mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                    mScanning = false;
+                }
+                startActivity(intent);    }
+        }
+
     }
 }
