@@ -46,6 +46,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Activity for scanning and displaying available Bluetooth LE devices.
@@ -102,6 +103,7 @@ public class DeviceScanActivity extends ListActivity {
                     R.layout.actionbar_indeterminate_progress);
         }
         return true;
+
     }
 
     @Override
@@ -309,10 +311,22 @@ public class DeviceScanActivity extends ListActivity {
                     {
 
                        final String deviceName = device.getName();
-                       if(deviceName != null&& deviceName.equals("MyESP32"))
-                        mLeDeviceListAdapter.addDevice(device);
-                        mLeDeviceListAdapter.notifyDataSetChanged();
+                       if(deviceName != null&& deviceName.equals("MyESP32")) {
+                           mLeDeviceListAdapter.addDevice(device);
+                           mLeDeviceListAdapter.notifyDataSetChanged();
+                           final Intent intent = new Intent(DeviceScanActivity.this,DeviceControlActivity.class);
+                           intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+                           intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+                           if (mScanning) {
+                               mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                               mScanning = false;
+                           }
+                           startActivity(intent);
+                           //  sendIntent();
+                       }
+
                     }
+
                     }
             });
         }
@@ -325,11 +339,14 @@ public class DeviceScanActivity extends ListActivity {
 
     private void sendIntent ()
     {
-        final ArrayList<BluetoothDevice> device = (ArrayList<BluetoothDevice>) mBluetoothAdapter.getBondedDevices();
+       // final ArrayList<BluetoothDevice> device = (ArrayList<BluetoothDevice>) mBluetoothAdapter.getBondedDevices();
+        Set<BluetoothDevice> device =  mBluetoothAdapter.getBondedDevices();
+
+
 
         for(BluetoothDevice blue : device) {
             if (blue == null) return;
-            if (blue.getName().equals("MyESP32")) {
+            if (blue.getName().equals("CC:50:E3:9B:94:9A")) {
                 final Intent intent = new Intent(this, DeviceControlActivity.class);
                 intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, blue.getName());
                 intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, blue.getAddress());
