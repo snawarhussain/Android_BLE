@@ -6,7 +6,7 @@
     density="xhdpi"
     format="10"
     plugin-version="3.2.1"
-    timestamp="1555188791299"
+    timestamp="1555194297564"
     token="7854963953773318345"
     verifier="FULL_BUILD_REQUESTED" >
 
@@ -27,10 +27,10 @@
         location="C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\build\intermediates\split-apk\debug\slices\slice_6.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\build\intermediates\split-apk\debug\slices\slice_1.apk"
+        location="C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\build\intermediates\resources\instant-run\debug\resources-debug.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\build\intermediates\resources\instant-run\debug\resources-debug.apk"
+        location="C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\build\intermediates\split-apk\debug\slices\slice_1.apk"
         type="SPLIT" />
     <artifact
         location="C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\build\intermediates\split-apk\debug\dep\dependencies.apk"
@@ -65,16 +65,16 @@
 
     <build
         build-mode="FULL"
-        timestamp="1555188791299"
+        timestamp="1555194297564"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\build\intermediates\resources\instant-run\debug\resources-debug.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\build\intermediates\resources\instant-run\debug\resources-debug.apk"
+            location="C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\build\intermediates\split-apk\debug\dep\dependencies.apk"

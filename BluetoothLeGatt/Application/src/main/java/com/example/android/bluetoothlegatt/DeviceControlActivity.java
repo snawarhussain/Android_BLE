@@ -17,6 +17,7 @@
 package com.example.android.bluetoothlegatt;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCallback;
 import android.bluetooth.BluetoothGattCharacteristic;
@@ -27,6 +28,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
@@ -65,12 +67,16 @@ public class DeviceControlActivity extends Activity {
 
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
+    private   long LastSessionTime;
     //public static final String STATION_DATA = "Station number" ;
     private BluetoothGattCallback BluetoothGattCallback;
+    private  SharedPreferences pref;
     private TextView mConnectionState;
     private TextView mDataField;
     private Button mWriteButton;
     private TextView mStationNumber;
+
+    private final long start_time =  getCurrentTimeUsingDate();
     private String mDeviceName;
     private FirebaseDatabase mFirebaseDatabse;
     private DatabaseReference mDatabaseReference;
@@ -79,10 +85,11 @@ public class DeviceControlActivity extends Activity {
     private ExpandableListView mGattServicesList;
     private BluetoothLeService mBluetoothLeService;
     private BluetoothGatt bluetoothGatt;
+    private DeviceScanActivity mDeviceScanActivity;
     private ArrayList<ArrayList<BluetoothGattCharacteristic>> mGattCharacteristics = new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
     private boolean mConnected = false;
     private MilkingSession mLastMilkingSession;
-    private String mLastMilkingSessionKey = null;
+    public String mLastMilkingSessionKey = null;
     private BluetoothGattCharacteristic mNotifyCharacteristic;
     private BluetoothGattCharacteristic mWriteCharacteristic;
     private boolean mSession_started = false;
@@ -91,10 +98,11 @@ public class DeviceControlActivity extends Activity {
     private final String LIST_NAME = "NAME";
     private final String LIST_UUID = "UUID";
     public BluetoothGattCharacteristic mMilkMeterCharacteristic;
-
+    private DeviceScanActivity getmDeviceScanActivity;
     private String mActiveSessionKey = null;
     private String mDataString = null;
-    private long timeString;
+    public DeviceScanActivity.LeDeviceListAdapter mLeDeviceListAdapter;
+    public long timeString = DeviceScanActivity.timeString ;
     String mReceivedTag = null;
     private String mDataKey = null;
     // Code to manage Service lifecycle.
@@ -112,7 +120,6 @@ public class DeviceControlActivity extends Activity {
             if (!mBluetoothLeService.initialize()) {
                 Log.e(TAG, "Unable to initialize Bluetooth");
                 finish();
-
             }
             // Automatically connects to the device upon successful start-up initialization.
             mBluetoothLeService.connect(mDeviceAddress);
@@ -133,8 +140,9 @@ public class DeviceControlActivity extends Activity {
     private final BroadcastReceiver mGattUpdateReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            final String action = intent.getAction();
             getLastSession();
+
+            final String action = intent.getAction();
             if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
                 mConnected = true;
                 updateConnectionState(R.string.connected);
@@ -148,6 +156,7 @@ public class DeviceControlActivity extends Activity {
                 // Show all the supported services and characteristics on the user interface.
                 displayGattServices(mBluetoothLeService.getSupportedGattServices());
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
+                // BluetoothDevice devicee = mLeDeviceListAdapter.getItem(1);
                 displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
             }
         }
@@ -158,46 +167,46 @@ public class DeviceControlActivity extends Activity {
     // demonstrates 'Read' and 'Notify' features.  See
     // http://d.android.com/reference/android/bluetooth/BluetoothGatt.html for the complete
     // list of supported characteristic features.
-   /** private final ExpandableListView.OnChildClickListener servicesListClickListner =
-            new ExpandableListView.OnChildClickListener() {
 
-
-                @Override
-                public boolean onChildClick(ExpandableListView parent, View v, int groupPosition,
-                                            int childPosition, long id) {
-                    if (mGattCharacteristics != null) {
-                        final BluetoothGattCharacteristic characteristic = mGattCharacteristics.get(groupPosition).get(childPosition);
-
-                        final int charaProp = characteristic.getProperties();
-                        if ((charaProp | BluetoothGattCharacteristic.PROPERTY_READ) > 0) {
-                            // If there is an active notification on a characteristic, clear
-                            // it first so it doesn't update the data field on the user interface.
-                            if (mNotifyCharacteristic != null) {
-                                mBluetoothLeService.setCharacteristicNotification(
-                                        mNotifyCharacteristic, false);
-                                mNotifyCharacteristic = null;
-                            }
-                            mBluetoothLeService.readCharacteristic(characteristic);
-                        }
-                        if ((charaProp | BluetoothGattCharacteristic.PROPERTY_NOTIFY) > 0) {
-                            /**===========================================
-                             final UUID CCCD_ID = UUID.fromString("000002902-0000-1000-8000-00805f9b34fb");
-                             final BluetoothGattDescriptor cccd = rccp_char.getDescriptor(CCCD_ID);
-                             cccd.setValue(BluetoothGattDescriptor.ENABLE_INDICATION_VALUE)
-                             //============================================
-
-                            mNotifyCharacteristic = characteristic;
-                            mBluetoothLeService.setCharacteristicNotification(
-                                    characteristic, true);
-
-
-                        }
-                        return true;
-                    }
-                    return false;
-                }
-            };
-*/
+    /**
+     * private final ExpandableListView.OnChildClickListener servicesListClickListner =
+     * new ExpandableListView.OnChildClickListener() {
+     *
+     * @Override public boolean onChildClick(ExpandableListView parent, View v, int groupPosition,
+     * int childPosition, long id) {
+     * if (mGattCharacteristics != null) {
+     * final BluetoothGattCharacteristic characteristic = mGattCharacteristics.get(groupPosition).get(childPosition);
+     * <p>
+     * final int charaProp = characteristic.getProperties();
+     * if ((charaProp | BluetoothGattCharacteristic.PROPERTY_READ) > 0) {
+     * // If there is an active notification on a characteristic, clear
+     * // it first so it doesn't update the data field on the user interface.
+     * if (mNotifyCharacteristic != null) {
+     * mBluetoothLeService.setCharacteristicNotification(
+     * mNotifyCharacteristic, false);
+     * mNotifyCharacteristic = null;
+     * }
+     * mBluetoothLeService.readCharacteristic(characteristic);
+     * }
+     * if ((charaProp | BluetoothGattCharacteristic.PROPERTY_NOTIFY) > 0) {
+     * /**===========================================
+     * final UUID CCCD_ID = UUID.fromString("000002902-0000-1000-8000-00805f9b34fb");
+     * final BluetoothGattDescriptor cccd = rccp_char.getDescriptor(CCCD_ID);
+     * cccd.setValue(BluetoothGattDescriptor.ENABLE_INDICATION_VALUE)
+     * //============================================
+     * <p>
+     * mNotifyCharacteristic = characteristic;
+     * mBluetoothLeService.setCharacteristicNotification(
+     * characteristic, true);
+     * <p>
+     * <p>
+     * }
+     * return true;
+     * }
+     * return false;
+     * }
+     * };
+     */
 
 
     private void clearUI() {
@@ -216,8 +225,8 @@ public class DeviceControlActivity extends Activity {
         mFirebaseDatabse = FirebaseDatabase.getInstance();
         // mDatabaseReference = mFirebaseDatabse.getReference().child("messages");
         mDatabaseReference = mFirebaseDatabse.getReference().child("MilkingSession");
-
-        /*Query LastSession = mDatabaseReference.orderByKey().limitToLast(1);
+        getLastSession();
+       /* Query LastSession = mDatabaseReference.orderByKey().limitToLast(1);
         LastSession.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -251,7 +260,7 @@ public class DeviceControlActivity extends Activity {
         // Sets up UI references.
         ((TextView) findViewById(R.id.device_address)).setText(mDeviceAddress);
         mGattServicesList = (ExpandableListView) findViewById(R.id.gatt_services_list);
-   //     mGattServicesList.setOnChildClickListener(servicesListClickListner);
+        //     mGattServicesList.setOnChildClickListener(servicesListClickListner);
         mConnectionState = (TextView) findViewById(R.id.connection_state);
         mDataField = (TextView) findViewById(R.id.data_value);
         mWriteButton = (Button) findViewById(R.id.write_btn);
@@ -331,6 +340,7 @@ public class DeviceControlActivity extends Activity {
         super.onDestroy();
         unbindService(mServiceConnection);
         mBluetoothLeService = null;
+        saveCurrentTime(start_time);
     }
 
     @Override
@@ -342,6 +352,10 @@ public class DeviceControlActivity extends Activity {
         } else {
             menu.findItem(R.id.menu_connect).setVisible(true);
             menu.findItem(R.id.menu_disconnect).setVisible(false);
+            /**
+             * Tries to connect automatically when device is disconnected
+             */
+
         }
         return true;
     }
@@ -386,7 +400,7 @@ public class DeviceControlActivity extends Activity {
             mDataField.setText(data);
             //mData.setValue(data);
             mDataString = data;
-            long start_time = getCurrentTimeUsingDate();
+
 
             double Litters = 0.0;
             boolean match = mDataString.matches("(.)" + "(.)" + "(.)" + "(\\/)" + "([+-]?\\d*\\.\\d+)(?![-+0-9\\.])" + "(\\/)" + "(.)" + "(.)" + "(\\/)" + "(.)" +
@@ -395,6 +409,7 @@ public class DeviceControlActivity extends Activity {
                 dataReceived = new Data(mDataString);
                 //==============================================================
                 mSession_started = true;
+
 
                 timeDifference = start_time - timeString;
 
@@ -412,12 +427,12 @@ public class DeviceControlActivity extends Activity {
                             mDatabaseReference.child(mActiveSessionKey).setValue(milkingSession);
 
 /**
-lastQuery  = mDatabaseReference.child(mActiveSessionKey).orderByKey().limitToLast(1);
-mReferenceToData =  lastQuery.getRef().child("Data");
+ lastQuery  = mDatabaseReference.child(mActiveSessionKey).orderByKey().limitToLast(1);
+ mReferenceToData =  lastQuery.getRef().child("Data");
 
-// mReferenceToData.
-mDataKey  = mReferenceToData.push().getKey();
-*/
+ // mReferenceToData.
+ mDataKey  = mReferenceToData.push().getKey();
+ */
                             UpdateDataChild(mActiveSessionKey);
                             profieUpdate();
                         }
@@ -448,7 +463,6 @@ mDataKey  = mReferenceToData.push().getKey();
                 getProfileDatabase();
 
 
-
                 Log.d(DISPLAY_SERVICE, "received tag(only) is set ");
             }
 
@@ -457,6 +471,13 @@ mDataKey  = mReferenceToData.push().getKey();
 
 
         //================================================================
+       /* final Intent intent = new Intent(DeviceControlActivity.this,DeviceScanActivity.class);
+        //  intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+        //intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+        intent.putExtra(DeviceScanActivity.POSITION,"1");
+
+
+        startActivity(intent);*/
     }
 
 
@@ -509,20 +530,19 @@ mDataKey  = mReferenceToData.push().getKey();
         }
 
 
-      /**  SimpleExpandableListAdapter gattServiceAdapter = new SimpleExpandableListAdapter(
-                this,
-                gattServiceData,
-                android.R.layout.simple_expandable_list_item_2,
-                new String[]{LIST_NAME, LIST_UUID},
-                new int[]{android.R.id.text1, android.R.id.text2},
-                gattCharacteristicData,
-                android.R.layout.simple_expandable_list_item_2,
-                new String[]{LIST_NAME, LIST_UUID},
-                new int[]{android.R.id.text1, android.R.id.text2}
-        );
-      //  mGattServicesList.setAdapter(gattServiceAdapter); */
+        /**  SimpleExpandableListAdapter gattServiceAdapter = new SimpleExpandableListAdapter(
+         this,
+         gattServiceData,
+         android.R.layout.simple_expandable_list_item_2,
+         new String[]{LIST_NAME, LIST_UUID},
+         new int[]{android.R.id.text1, android.R.id.text2},
+         gattCharacteristicData,
+         android.R.layout.simple_expandable_list_item_2,
+         new String[]{LIST_NAME, LIST_UUID},
+         new int[]{android.R.id.text1, android.R.id.text2}
+         );
+         //  mGattServicesList.setAdapter(gattServiceAdapter); */
     }
-
 
 
     private void subsribeToCharacteristic(BluetoothGattCharacteristic gattCharacteristic) {
@@ -552,9 +572,9 @@ mDataKey  = mReferenceToData.push().getKey();
 
 
         }
-      //  return true;
+        //  return true;
     }
-                   // return false;
+    // return false;
 
 
     private static IntentFilter makeGattUpdateIntentFilter() {
@@ -592,21 +612,20 @@ mDataKey  = mReferenceToData.push().getKey();
 
 
     }
-    private void getProfileDatabase()
-    {
+
+    private void getProfileDatabase() {
         DatabaseReference profile = mFirebaseDatabse.getReference().child("profile").child(mReceivedTag);
         profile.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 mReceivedProfileData = dataSnapshot.getValue(Profile.class);
-                if(mReceivedProfileData!= null){
+                if (mReceivedProfileData != null && mConnected && mMilkMeterCharacteristic != null) {
                     mMilkMeterCharacteristic.setValue(mReceivedTag);
                     mBluetoothLeService.mBluetoothGatt.writeCharacteristic(mMilkMeterCharacteristic);
 
 
-                }
-                else{
+                } else if (mConnected && mMilkMeterCharacteristic != null) {
                     mMilkMeterCharacteristic.setValue("invalid");
                     mBluetoothLeService.mBluetoothGatt.writeCharacteristic(mMilkMeterCharacteristic);
                 }
@@ -621,6 +640,7 @@ mDataKey  = mReferenceToData.push().getKey();
 
 
     }
+
     public void getLastSession() {
         mFirebaseDatabse = FirebaseDatabase.getInstance();
         // mDatabaseReference = mFirebaseDatabse.getReference().child("messages");
@@ -651,5 +671,24 @@ mDataKey  = mReferenceToData.push().getKey();
 
     }
 
-}
+    private void saveCurrentTime(long time) {
+        //Create a object SharedPreferences from getSharedPreferences("name_file",MODE_PRIVATE) of Context
 
+        pref = getSharedPreferences("info", MODE_PRIVATE);
+//Using putXXX - with XXX is type data you want to write like: putString, putInt...   from      Editor object
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("lastTime", "hey");
+//finally, when you are done saving the values, call the commit() method.
+        editor.commit();
+    }
+
+    private void getLastTime() {
+        //get SharedPreferences from getSharedPreferences("name_file", MODE_PRIVATE)
+        SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
+//Using getXXX- with XX is type date you wrote to file "name_file"
+
+
+        shared.getLong("lastTime", LastSessionTime );
+    }
+
+}
