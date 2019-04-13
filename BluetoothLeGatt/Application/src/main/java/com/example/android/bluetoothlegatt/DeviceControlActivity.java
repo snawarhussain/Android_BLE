@@ -134,6 +134,7 @@ public class DeviceControlActivity extends Activity {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
+            getLastSession();
             if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
                 mConnected = true;
                 updateConnectionState(R.string.connected);
@@ -216,7 +217,7 @@ public class DeviceControlActivity extends Activity {
         // mDatabaseReference = mFirebaseDatabse.getReference().child("messages");
         mDatabaseReference = mFirebaseDatabse.getReference().child("MilkingSession");
 
-        Query LastSession = mDatabaseReference.orderByKey().limitToLast(1);
+        /*Query LastSession = mDatabaseReference.orderByKey().limitToLast(1);
         LastSession.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -236,7 +237,7 @@ public class DeviceControlActivity extends Activity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });*/
 
         //==========================================
         //================================
@@ -609,6 +610,35 @@ mDataKey  = mReferenceToData.push().getKey();
                     mMilkMeterCharacteristic.setValue("invalid");
                     mBluetoothLeService.mBluetoothGatt.writeCharacteristic(mMilkMeterCharacteristic);
                 }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
+    public void getLastSession() {
+        mFirebaseDatabse = FirebaseDatabase.getInstance();
+        // mDatabaseReference = mFirebaseDatabse.getReference().child("messages");
+        mDatabaseReference = mFirebaseDatabse.getReference().child("MilkingSession");
+
+        Query LastSession = mDatabaseReference.orderByKey().limitToLast(1);
+        LastSession.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                    MilkingSession session = snap.getValue(MilkingSession.class);
+                    mLastMilkingSessionKey = snap.getKey();
+                    timeString = session.getStart_Time();
+
+                    Log.d("YES", "Samosay Par Gaye with Chai");
+                }
+
 
             }
 

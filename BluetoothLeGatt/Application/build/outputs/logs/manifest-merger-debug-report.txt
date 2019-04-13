@@ -1,8 +1,8 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:16:1-63:12
-INJECTED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:16:1-63:12
-INJECTED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:16:1-63:12
+ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:16:1-64:12
+INJECTED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:16:1-64:12
+INJECTED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:16:1-64:12
 MERGED from [com.android.support:support-v13:27.0.2] C:\Users\Sanawar\.gradle\caches\transforms-1\files-1.1\support-v13-27.0.2.aar\9aee413045d75e12b746afc00317272f\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database:16.0.6] C:\Users\Sanawar\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.6.aar\27b2504feca7eb4164efbfb013b36caa\AndroidManifest.xml:15:1-27:12
 MERGED from [com.google.firebase:firebase-core:16.0.7] C:\Users\Sanawar\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.7.aar\e6341d204709673e5c08ed9f97f231c1\AndroidManifest.xml:2:1-9:12
@@ -32,8 +32,8 @@ MERGED from [com.android.support:support-media-compat:27.0.2] C:\Users\Sanawar\.
 MERGED from [com.android.support:support-compat:27.0.2] C:\Users\Sanawar\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\53763b526e4686414357b87e6e86d5ed\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\Sanawar\.gradle\caches\transforms-1\files-1.1\firebase-database-collection-16.0.1.aar\c2fe62df3883a4ffa720c6126cde1567\AndroidManifest.xml:2:1-7:12
 MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Sanawar\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\524abb355cfd07c3ec9ffbe03366d3fc\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:16:1-63:12
-INJECTED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:16:1-63:12
+INJECTED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:16:1-64:12
+INJECTED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:16:1-64:12
 	package
 		ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:17:5-50
 	android:versionName
@@ -77,7 +77,7 @@ ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\sr
 	android:name
 		ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:40:29-85
 application
-ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:42:5-61:19
+ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:42:5-62:19
 MERGED from [com.google.firebase:firebase-core:16.0.7] C:\Users\Sanawar\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.7.aar\e6341d204709673e5c08ed9f97f231c1\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.7] C:\Users\Sanawar\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.7.aar\e6341d204709673e5c08ed9f97f231c1\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] C:\Users\Sanawar\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.5.aar\54b7f124ad8e759f23c3c98e9ba77b4f\AndroidManifest.xml:26:5-32:19
@@ -131,15 +131,17 @@ ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\sr
 	android:name
 		ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:52:27-74
 activity#com.example.android.bluetoothlegatt.DeviceControlActivity
-ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:55:9-59
+ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:55:9-56:53
+	android:launchMode
+		ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:56:19-49
 	android:name
 		ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:55:19-56
 service#com.example.android.bluetoothlegatt.BluetoothLeService
-ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:57:9-59:38
+ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:58:9-60:38
 	android:enabled
-		ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:59:13-35
+		ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:60:13-35
 	android:name
-		ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:58:13-47
+		ADDED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:59:13-47
 uses-sdk
 INJECTED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Sanawar\Downloads\Android_BLE\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
