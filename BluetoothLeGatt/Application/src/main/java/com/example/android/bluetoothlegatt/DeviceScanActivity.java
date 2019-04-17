@@ -397,10 +397,15 @@ public class DeviceScanActivity extends ListActivity {
         for(BluetoothDevice blue : device) {
             if (blue == null) return;
             if (blue.getName().equals("CC:50:E3:9B:94:9A")) */
+        Bundle bundle = new Bundle();
+
+        ArrayList<BluetoothDevice> mDevices =(ArrayList) mLeDeviceListAdapter.mLeDevices.clone();
+        bundle.putParcelableArrayList("devices", mDevices);
         BluetoothDevice device = mLeDeviceListAdapter.getDevice(0);
         final Intent intent = new Intent(DeviceScanActivity.this,DeviceControlActivity.class);
         intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
         intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+        intent.putExtras(bundle);
         if (mScanning) {
             mBluetoothAdapter.stopLeScan(mLeScanCallback);
             mScanning = false;

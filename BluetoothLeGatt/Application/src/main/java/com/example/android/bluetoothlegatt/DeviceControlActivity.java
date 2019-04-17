@@ -47,6 +47,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 
 import com.google.firebase.database.DataSnapshot;
@@ -73,9 +74,10 @@ public class DeviceControlActivity extends Activity {
     private  SharedPreferences pref;
     private TextView mConnectionState;
     private TextView mDataField;
+    int i = 0;
     private Button mWriteButton;
     private TextView mStationNumber;
-
+    private  boolean match;
     private final long start_time =  getCurrentTimeUsingDate();
     private String mDeviceName;
     private FirebaseDatabase mFirebaseDatabse;
@@ -88,6 +90,7 @@ public class DeviceControlActivity extends Activity {
     private DeviceScanActivity mDeviceScanActivity;
     private ArrayList<ArrayList<BluetoothGattCharacteristic>> mGattCharacteristics = new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
     private boolean mConnected = false;
+    public ArrayList<BluetoothDevice> mLeDevices;
     private MilkingSession mLastMilkingSession;
     public String mLastMilkingSessionKey = null;
     private BluetoothGattCharacteristic mNotifyCharacteristic;
@@ -141,6 +144,7 @@ public class DeviceControlActivity extends Activity {
         @Override
         public void onReceive(Context context, Intent intent) {
             getLastSession();
+
 
             final String action = intent.getAction();
             if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
@@ -219,7 +223,10 @@ public class DeviceControlActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Bundle bundle = getIntent().getExtras();
 
+        assert bundle != null;
+        mLeDevices = bundle.getParcelableArrayList("devices");
         //============================================
 
         mFirebaseDatabse = FirebaseDatabase.getInstance();
@@ -249,6 +256,7 @@ public class DeviceControlActivity extends Activity {
         });*/
 
         //==========================================
+        i = mLeDevices.size()-1;
         //================================
 
         setContentView(R.layout.gatt_services_characteristics);
@@ -256,7 +264,6 @@ public class DeviceControlActivity extends Activity {
         final Intent intent = getIntent();
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
         mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
-
         // Sets up UI references.
         ((TextView) findViewById(R.id.device_address)).setText(mDeviceAddress);
         mGattServicesList = (ExpandableListView) findViewById(R.id.gatt_services_list);
@@ -356,6 +363,7 @@ public class DeviceControlActivity extends Activity {
              * Tries to connect automatically when device is disconnected
              */
 
+
         }
         return true;
     }
@@ -382,6 +390,13 @@ public class DeviceControlActivity extends Activity {
             @Override
             public void run() {
                 mConnectionState.setText(resourceId);
+                /*if(!mConnected)
+                {
+
+                    if(mDeviceAddress != null)
+                        mBluetoothLeService.connect(mDeviceAddress);
+                }*/
+
             }
         });
     }
@@ -397,13 +412,15 @@ public class DeviceControlActivity extends Activity {
 
     private void displayData(String data) {
         if (data != null) {
-            mDataField.setText(data);
+            if(mLeDevices != null)
+
+                mDataField.setText(data);
             //mData.setValue(data);
             mDataString = data;
 
 
             double Litters = 0.0;
-            boolean match = mDataString.matches("(.)" + "(.)" + "(.)" + "(\\/)" + "([+-]?\\d*\\.\\d+)(?![-+0-9\\.])" + "(\\/)" + "(.)" + "(.)" + "(\\/)" + "(.)" +
+            match = mDataString.matches("(.)" + "(.)" + "(.)" + "(\\/)" + "([+-]?\\d*\\.\\d+)(?![-+0-9\\.])" + "(\\/)" + "(.)" + "(.)" + "(\\/)" + "(.)" +
                     "(.)");
             if (match) {
                 dataReceived = new Data(mDataString);
@@ -450,8 +467,6 @@ public class DeviceControlActivity extends Activity {
 
 
                 }
-
-
             }
 
             boolean matchProfile = mDataString.matches("(.)" + "(.)" + "(.)");
@@ -478,6 +493,35 @@ public class DeviceControlActivity extends Activity {
 
 
         startActivity(intent);*/
+        if (match)
+            connectNext();
+    }
+
+
+
+
+    private void connectNext()
+    {/*
+        for(BluetoothDevice d : mLeDevices){
+
+            mDeviceAddress = d.getAddress();
+
+        }*/
+
+        if(!(i >= mLeDevices.size()) && i >= 0 )
+        {
+            mDeviceAddress = mLeDevices.get(i).getAddress();
+            mBluetoothLeService.connect(mDeviceAddress);
+            Log.v("Multi Device connection", "Trying to connect to" +mDeviceAddress+ "device");
+            ((TextView) findViewById(R.id.device_address)).setText(mDeviceAddress);
+            i--;
+        }
+        else{
+
+            i = mLeDevices.size()-1;
+            Log.v("Multi Device connection", "loop index reset");
+        }
+
     }
 
 
